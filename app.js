@@ -32,6 +32,12 @@ app.use(cors());
 // Body Parser MiddleWare
 app.use(bodyParser.json());
 
+// Passport MiddleWare
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.use('/users', users);
 
 // Index Route
